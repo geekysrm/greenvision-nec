@@ -57,7 +57,8 @@ export default class HelloWorldSceneAR extends Component {
     for (let i = 0; i < this.state.coinCount; i++) {
       newCoins.push({
         x: this.getRandomNumbers(),
-        y: 0
+        y: 0,
+        visible: true
       });
     }
     this.setState({ coins: newCoins });
@@ -65,6 +66,23 @@ export default class HelloWorldSceneAR extends Component {
 
   getRandomNumbers = () => {
     return Math.floor(Math.random() * 6) - 3;
+  };
+
+  handleCoinClick = index => {
+    // let new1 = this.state.coins.findIndex((el) => el.x === this.state.coins[index.x])
+    let newCoins = [];
+    for (let i = 0; i < this.state.coinCount; i++) {
+      if (i !== index) newCoins.push(this.state.coins[i]);
+      else {
+        newCoins.push({ ...this.state.coins[i], visible: false });
+      }
+    }
+
+    //increase score by 10
+    this.setState(state => ({
+      score: state.score + 10,
+      coins: newCoins
+    }));
   };
 
   render() {
@@ -97,8 +115,14 @@ export default class HelloWorldSceneAR extends Component {
             />
           </ViroNode>
 
-          {this.state.coins.map(({ x, y }) => (
-            <ViroNode key={x} position={[x, y, -1]} scale={[0.5, 0.5, 0.5]}>
+          {this.state.coins.map(({ x, y, visible }, index) => (
+            <ViroNode
+              onClick={() => this.handleCoinClick(index)}
+              key={x}
+              position={[x, y, -1]}
+              scale={[0.5, 0.5, 0.5]}
+              visible={visible}
+            >
               <Viro3DObject
                 source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
                 resources={[
