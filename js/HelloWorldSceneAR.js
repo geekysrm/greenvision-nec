@@ -38,21 +38,6 @@ export default class HelloWorldSceneAR extends Component {
   }
 
   componentDidMount() {
-    // // this.renderCoins();
-    // this.setState(state => {
-    //   let newCoins = [];
-    //   for (let i = 0; i < state.coinCount; i++) {
-    //     newCoins = [
-    //       {
-    //         x: this.getRandomNumbers(),
-    //         y: this.getRandomNumbers()
-    //       }
-    //     ];
-    //   }
-    //   return {
-    //     coins: newCoins
-    //   };
-    // });
     let newCoins = [];
     for (let i = 0; i < this.state.coinCount; i++) {
       newCoins.push({
@@ -69,7 +54,6 @@ export default class HelloWorldSceneAR extends Component {
   };
 
   handleCoinClick = index => {
-    // let new1 = this.state.coins.findIndex((el) => el.x === this.state.coins[index.x])
     let newCoins = [];
     for (let i = 0; i < this.state.coinCount; i++) {
       if (i !== index) newCoins.push(this.state.coins[i]);
@@ -78,7 +62,7 @@ export default class HelloWorldSceneAR extends Component {
       }
     }
 
-    //increase score by 10
+    //increase score by 10 and make the clicked coin invisible
     this.setState(state => ({
       score: state.score + 10,
       coins: newCoins
@@ -97,12 +81,7 @@ export default class HelloWorldSceneAR extends Component {
               height={2}
             />
           </ViroARCamera>
-          {/* <View>
-          <Text>Hello </Text>
-        </View> */}
-          {/* <ViroARCamera>
-        
-        </ViroARCamera> */}
+
           <ViroNode position={[0.0, 0.0, -1.0]} scale={[0.5, 0.5, 0.5]}>
             <ViroAmbientLight color='#ffffff' />
 
