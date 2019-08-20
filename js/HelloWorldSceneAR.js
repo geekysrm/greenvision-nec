@@ -10,7 +10,14 @@ import {
   ViroConstants,
   ViroAmbientLight,
   Viro3DObject,
-  ViroARPlane
+  ViroARPlaneSelector,
+  ViroARPlane,
+  ViroSpotLight,
+  ViroImage,
+  ViroScene,
+  ViroPortalScene,
+  ViroPortal,
+  ViroNode
 } from "react-viro";
 
 export default class HelloWorldSceneAR extends Component {
@@ -28,35 +35,32 @@ export default class HelloWorldSceneAR extends Component {
 
   render() {
     return (
-      <ViroARScene onTrackingUpdated={this._onInitialized}>
-        {this.state.initialized ? (
-          <>
-            <ViroAmbientLight color='#ffffff' />
-
-            <Viro3DObject
-              source={require("../assets/tree/tree.fbx")}
-              resources={[
-                require("../assets/tree/Tree.mtl"),
-                require("../assets/tree/DB2X2_L01.png"),
-                require("../assets/tree/DB2X2_L01_Spec.png"),
-                require("../assets/tree/bark_0021.jpg")
-              ]}
-              highAccuracyEvents={true}
-              position={[0, 0, -1]}
-              scale={[0.05, 0.05, 0.05]}
-              rotation={[0, 0, 0]}
-              type='OBJ'
-              transformBehaviors={["billboard"]}
-            />
-          </>
-        ) : (
-          <ViroText
-            text='Initializing AR...'
-            scale={[0.5, 0.5, 0.5]}
-            position={[0, 0, -1]}
+      <ViroARScene>
+        <ViroNode position={[0.0, 0.0, -1.0]} scale={[0.5, 0.5, 0.5]}>
+          {/* <ViroText
+            text='Hello World'
+            position={[0, -1, 0]}
             style={styles.helloWorldTextStyle}
+          /> */}
+          <ViroAmbientLight color='#ffffff' />
+
+          {/* <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={"Horizontal"}> */}
+          <Viro3DObject
+            source={require("../assets/icecreamman_anim/icecreamman_anim_pbr.vrx")}
+            resources={[
+              require("../assets/icecreamman_anim/icecream_man_pbr_Base_Color.png"),
+              require("../assets/icecreamman_anim/icecream_man_pbr_Metallic.png"),
+              require("../assets/icecreamman_anim/icecream_man_pbr_Mixed_AO.png"),
+              require("../assets/icecreamman_anim/icecream_man_pbr_Base_Color.png"),
+              require("../assets/icecreamman_anim/icecream_man_pbr_Roughness.png")
+            ]}
+            position={[0, -1, 0]}
+            scale={[0.5, 0.5, 0.5]}
+            type='VRX'
+            transformBehaviors={["billboard"]}
           />
-        )}
+          {/* </ViroARPlane> */}
+        </ViroNode>
       </ViroARScene>
     );
   }
