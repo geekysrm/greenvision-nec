@@ -76,7 +76,7 @@ export default class HelloWorldSceneAR extends Component {
           <ViroARCamera>
             <ViroText
               position={[2, 2.5, -6]}
-              text={`Score: ${this.state.score}`}
+              text={`Earth Points: ${this.state.score}`}
               width={2}
               height={2}
             />
