@@ -103,13 +103,14 @@ export default class HelloWorldSceneAR extends Component {
               visible={visible}
             >
               <Viro3DObject
-                source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
+                source={require("../assets/earth/Earth.obj")}
                 resources={[
-                  require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
+                  require("../assets/earth/Earth.mtl"),
+                  require("../assets/earth/Earth_TEXTURE_CM.png")
                 ]}
-                type='VRX'
+                type='OBJ'
                 position={[1, 1, -1]}
-                scale={[0.25, 0.25, 0.25]}
+                scale={[0.1, 0.1, 0.1]}
               />
             </ViroNode>
           ))}

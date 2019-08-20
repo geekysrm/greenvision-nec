@@ -31,7 +31,8 @@ module.exports = {
       "gltf",
       "glb",
       "bin",
-      "arobject"
+      "arobject",
+      "tga"
     ];
   },
 
