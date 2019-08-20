@@ -45,7 +45,7 @@ export default class HelloWorldSceneAR extends Component {
           <ViroAmbientLight color='#ffffff' />
 
           {/* <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={"Horizontal"}> */}
-          <Viro3DObject
+          {/* <Viro3DObject
             source={require("../assets/icecreamman_anim/icecreamman_anim_pbr.vrx")}
             resources={[
               require("../assets/icecreamman_anim/icecream_man_pbr_Base_Color.png"),
@@ -58,7 +58,16 @@ export default class HelloWorldSceneAR extends Component {
             scale={[0.5, 0.5, 0.5]}
             type='VRX'
             transformBehaviors={["billboard"]}
+          /> */}
+          <ViroImage
+            height={1}
+            width={1}
+            // placeholderSource={require("../assets/tree-min.png")}
+            source={require("../assets/tree-min.png")}
+            position={[0, 0, 0]}
+            transformBehaviors={["billboard"]}
           />
+
           {/* </ViroARPlane> */}
         </ViroNode>
       </ViroARScene>
