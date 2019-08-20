@@ -70,6 +70,17 @@ export default class HelloWorldSceneAR extends Component {
 
           {/* </ViroARPlane> */}
         </ViroNode>
+        <ViroNode position={[1, 0, -1]} scale={[0.5, 0.5, 0.5]}>
+          <Viro3DObject
+            source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
+            resources={[
+              require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
+            ]}
+            type='VRX'
+            position={[1, 1, -1]}
+            scale={[0.25, 0.25, 0.25]}
+          />
+        </ViroNode>
       </ViroARScene>
     );
   }
