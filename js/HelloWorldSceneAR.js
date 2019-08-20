@@ -28,18 +28,48 @@ export default class HelloWorldSceneAR extends Component {
     // Set initial state here
     this.state = {
       initialized: false,
-      score: 0
+      score: 0,
+      coinCount: 7,
+      coins: []
     };
 
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
   }
 
+  componentDidMount() {
+    // // this.renderCoins();
+    // this.setState(state => {
+    //   let newCoins = [];
+    //   for (let i = 0; i < state.coinCount; i++) {
+    //     newCoins = [
+    //       {
+    //         x: this.getRandomNumbers(),
+    //         y: this.getRandomNumbers()
+    //       }
+    //     ];
+    //   }
+    //   return {
+    //     coins: newCoins
+    //   };
+    // });
+    let newCoins = [];
+    for (let i = 0; i < this.state.coinCount; i++) {
+      newCoins.push({
+        x: this.getRandomNumbers(),
+        y: 0
+      });
+    }
+    this.setState({ coins: newCoins });
+  }
+
+  getRandomNumbers = () => {
+    return Math.floor(Math.random() * 6) - 3;
+  };
+
   render() {
     return (
       <View style={{ flex: 1 }}>
-        {/* <Text>Jelfjdkdji</Text> */}
-
         <ViroARScene>
           <ViroARCamera>
             <ViroText
@@ -56,94 +86,30 @@ export default class HelloWorldSceneAR extends Component {
         
         </ViroARCamera> */}
           <ViroNode position={[0.0, 0.0, -1.0]} scale={[0.5, 0.5, 0.5]}>
-            {/* <ViroText
-            text='Hello World'
-            position={[0, -1, 0]}
-            style={styles.helloWorldTextStyle}
-          /> */}
             <ViroAmbientLight color='#ffffff' />
 
-            {/* <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={"Horizontal"}> */}
-            {/* <Viro3DObject
-            source={require("../assets/icecreamman_anim/icecreamman_anim_pbr.vrx")}
-            resources={[
-              require("../assets/icecreamman_anim/icecream_man_pbr_Base_Color.png"),
-              require("../assets/icecreamman_anim/icecream_man_pbr_Metallic.png"),
-              require("../assets/icecreamman_anim/icecream_man_pbr_Mixed_AO.png"),
-              require("../assets/icecreamman_anim/icecream_man_pbr_Base_Color.png"),
-              require("../assets/icecreamman_anim/icecream_man_pbr_Roughness.png")
-            ]}
-            position={[0, -1, 0]}
-            scale={[0.5, 0.5, 0.5]}
-            type='VRX'
-            transformBehaviors={["billboard"]}
-          /> */}
             <ViroImage
               height={1}
               width={1}
-              // placeholderSource={require("../assets/tree-min.png")}
               source={require("../assets/tree-min.png")}
               position={[0, 0, 0]}
               transformBehaviors={["billboard"]}
             />
+          </ViroNode>
 
-            {/* </ViroARPlane> */}
-          </ViroNode>
-          <ViroNode position={[1, 0, -1]} scale={[0.5, 0.5, 0.5]}>
-            <Viro3DObject
-              source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
-              resources={[
-                require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
-              ]}
-              type='VRX'
-              position={[1, 1, -1]}
-              scale={[0.25, 0.25, 0.25]}
-            />
-          </ViroNode>
-          <ViroNode position={[1, 0, -1]} scale={[0.5, 0.5, 0.5]}>
-            <Viro3DObject
-              source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
-              resources={[
-                require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
-              ]}
-              type='VRX'
-              position={[1, 1, -1]}
-              scale={[0.25, 0.25, 0.25]}
-            />
-          </ViroNode>
-          <ViroNode position={[1, 0, -1]} scale={[0.5, 0.5, 0.5]}>
-            <Viro3DObject
-              source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
-              resources={[
-                require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
-              ]}
-              type='VRX'
-              position={[1, 1, -1]}
-              scale={[0.25, 0.25, 0.25]}
-            />
-          </ViroNode>
-          <ViroNode position={[1, 0, -1]} scale={[0.5, 0.5, 0.5]}>
-            <Viro3DObject
-              source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
-              resources={[
-                require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
-              ]}
-              type='VRX'
-              position={[1, 1, -1]}
-              scale={[0.25, 0.25, 0.25]}
-            />
-          </ViroNode>
-          <ViroNode position={[1, 0, -1]} scale={[0.5, 0.5, 0.5]}>
-            <Viro3DObject
-              source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
-              resources={[
-                require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
-              ]}
-              type='VRX'
-              position={[1, 1, -1]}
-              scale={[0.25, 0.25, 0.25]}
-            />
-          </ViroNode>
+          {this.state.coins.map(({ x, y }) => (
+            <ViroNode key={x} position={[x, y, -1]} scale={[0.5, 0.5, 0.5]}>
+              <Viro3DObject
+                source={require("../assets/res/res/emoji_smile/emoji_smile.vrx")}
+                resources={[
+                  require("../assets/res/res/emoji_smile/emoji_smile_specular.png")
+                ]}
+                type='VRX'
+                position={[1, 1, -1]}
+                scale={[0.25, 0.25, 0.25]}
+              />
+            </ViroNode>
+          ))}
         </ViroARScene>
       </View>
     );

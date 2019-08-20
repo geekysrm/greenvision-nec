@@ -18,7 +18,7 @@ import {
 } from "react-native";
 
 import { ViroVRSceneNavigator, ViroARSceneNavigator } from "react-viro";
-
+console.disableYellowBox = true;
 /*
  TODO: Insert your API key below
  */
