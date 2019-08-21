@@ -36,7 +36,7 @@ var AR_NAVIGATOR_TYPE = "AR";
 
 // This determines which type of experience to launch in, or UNSET, if the user should
 // be presented with a choice of AR or VR. By default, we offer the user a choice.
-var defaultNavigatorType = AR_NAVIGATOR_TYPE;
+var defaultNavigatorType = UNSET;
 
 export default class ViroSample extends Component {
   constructor() {
@@ -72,9 +72,7 @@ export default class ViroSample extends Component {
     return (
       <View style={localStyles.outer}>
         <View style={localStyles.inner}>
-          <Text style={localStyles.titleText}>
-            Choose your desired experience:
-          </Text>
+          <Text style={localStyles.titleText}>Choose Options: </Text>
 
           <TouchableHighlight
             style={localStyles.buttons}
@@ -82,14 +80,6 @@ export default class ViroSample extends Component {
             underlayColor={"#68a0ff"}
           >
             <Text style={localStyles.buttonText}>AR</Text>
-          </TouchableHighlight>
-
-          <TouchableHighlight
-            style={localStyles.buttons}
-            onPress={this._getExperienceButtonOnPress(VR_NAVIGATOR_TYPE)}
-            underlayColor={"#68a0ff"}
-          >
-            <Text style={localStyles.buttonText}>VR</Text>
           </TouchableHighlight>
         </View>
       </View>
@@ -144,18 +134,18 @@ var localStyles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "black"
+    backgroundColor: "white"
   },
   inner: {
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "black"
+    backgroundColor: "white"
   },
   titleText: {
     paddingTop: 30,
     paddingBottom: 20,
-    color: "#fff",
+    color: "black",
     textAlign: "center",
     fontSize: 25
   },
