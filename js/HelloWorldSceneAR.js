@@ -10,6 +10,7 @@ import {
   ViroConstants,
   ViroAmbientLight,
   Viro3DObject,
+  ViroButton,
   ViroARPlaneSelector,
   ViroARPlane,
   ViroSpotLight,
@@ -80,6 +81,17 @@ export default class HelloWorldSceneAR extends Component {
               width={2}
               height={2}
             />
+            <ViroButton
+              source={require("../assets/return-button-png-34570.png")}
+              position={[-1, 3, -6]}
+              height={0.7}
+              width={1.3}
+              onClick={() =>
+                this.props.sceneNavigator.viroAppProps.onBackButtonPress(
+                  "UNSET"
+                )
+              }
+            />
           </ViroARCamera>
 
           <ViroNode position={[0.0, 0.0, -1.0]} scale={[0.5, 0.5, 0.5]}>
@@ -97,7 +109,7 @@ export default class HelloWorldSceneAR extends Component {
           {this.state.coins.map(({ x, y, visible }, index) => (
             <ViroNode
               onClick={() => this.handleCoinClick(index)}
-              key={x}
+              key={index}
               position={[x, y, -1]}
               scale={[0.5, 0.5, 0.5]}
               visible={visible}
