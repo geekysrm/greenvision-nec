@@ -19,6 +19,7 @@ import reducers from "./reducers";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import App from "./components/App";
+import Insights from "./components/Insights";
 
 import "./index.css";
 
@@ -29,6 +30,8 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={App} />
+        <Route exact path="/insights" component={Insights} />
+
         <Redirect from="*" to={"/"} />
       </Switch>
     </Router>
