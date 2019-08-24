@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 
-import { Avatar, Icon, Progress } from "antd";
+import { Avatar, Icon, Progress, Button } from "antd";
 
 import { connect } from "react-redux";
 
 import { getEarthPoints } from "../actions/earthPointsActions";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false
+    };
+  }
+
   componentDidMount() {
     this.props.getEarthPoints();
   }
@@ -117,6 +125,22 @@ class App extends Component {
 
         <br />
         <br />
+
+        <div className="game-btn">
+          <Button
+            type="primary"
+            size="large"
+            loading={this.state.loading}
+            onClick={() => {
+              this.setState({
+                loading: true
+              });
+            }}
+          >
+            PLAY AR GAME
+          </Button>
+        </div>
+
         <br />
         <br />
         <br />
