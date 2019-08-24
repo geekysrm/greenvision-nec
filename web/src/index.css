@@ -156,3 +156,53 @@ img {
   font-size: 24px;
   color: #4ddcfc;
 }
+
+.position {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #67c912;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.postion-icon {
+  padding: 5px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.bg-img {
+  width: 300px;
+  object-fit: contain;
+  margin: 10px;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+.redeem-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.redeem-card {
+  position: relative;
+}
+
+.redeem-card-text {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #67c912;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}

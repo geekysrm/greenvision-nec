@@ -28,6 +28,12 @@ class LeaderBoard extends Component {
             LeaderBoard
           </div>
         </div>
+
+        <div className="position">
+          <div>Your Position</div>
+          <div className="postion-icon">2nd</div>
+        </div>
+
         <List
           itemLayout="horizontal"
           dataSource={data}

@@ -24,6 +24,7 @@ import Insights from "./components/Insights/index";
 
 import "./index.css";
 import LeaderBoard from "./components/LeaderBoard";
+import Redeem from "./components/Redeem";
 
 // const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -43,6 +44,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/insights" component={Insights} />
         <Route exact path="/leaderboard" component={LeaderBoard} />
+        <Route exact path="/redeem" component={Redeem} />
 
         <Redirect from="*" to={"/"} />
       </Switch>

@@ -16,7 +16,7 @@ class App extends Component {
           <div className="avatar-container">
             <Avatar
               shape="square"
-              size={64}
+              size={96}
               icon="user"
               className="avatar"
               src="https://sonu12485.github.io/images/avatar.jpg"
@@ -78,6 +78,18 @@ class App extends Component {
           }}
         >
           View LeaderBoard{" "}
+          <div className="arrow">
+            <Icon type="right" />
+          </div>
+        </div>
+
+        <div
+          className="goto-button"
+          onClick={() => {
+            this.props.history.push("/redeem");
+          }}
+        >
+          Redeem Earth Points{" "}
           <div className="arrow">
             <Icon type="right" />
           </div>
