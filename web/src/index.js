@@ -4,6 +4,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
 
 import thunk from "redux-thunk";
 
@@ -23,10 +24,19 @@ import Insights from "./components/Insights";
 
 import "./index.css";
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+// const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+
+const initialState = {};
+const middleware = [thunk];
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider
+    store={createStore(
+      reducers,
+      initialState,
+      composeWithDevTools(applyMiddleware(...middleware))
+    )}
+  >
     <Router>
       <Switch>
         <Route exact path="/" component={App} />
