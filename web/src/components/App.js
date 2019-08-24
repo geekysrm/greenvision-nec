@@ -65,6 +65,20 @@ class App extends Component {
           </div>
         </div>
 
+        <div className="streks">
+          <div className="streks-heading" style={{ color: "#FBC130" }}>
+            26760/35000 Earth Points away from CM's Award
+          </div>
+          <div>
+            <Progress
+              percent={24}
+              status="active"
+              strokeColor="#FBC130"
+              strokeWidth={12}
+            />
+          </div>
+        </div>
+
         <div
           className="goto-button"
           onClick={() => {
