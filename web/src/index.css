@@ -18,9 +18,9 @@ code {
 
 .app-contianer {
   background-color: black;
-  height: 100vh;
   width: 100%;
   color: white;
+  min-height: 100vh;
 }
 
 .app-header {
@@ -40,7 +40,6 @@ code {
 
 .profile-container {
   width: 100%;
-  height: 50vh;
 }
 
 .avatar-container {
@@ -48,7 +47,7 @@ code {
   justify-content: center;
   align-items: center;
   margin: 20px;
-  padding: 10px;
+  margin-top: 40px;
 }
 
 .avatar {
@@ -57,4 +56,31 @@ code {
 
 .graph-wrapper {
   display: flex;
+}
+.profile-name {
+  text-align: center;
+  font-size: 36px;
+}
+
+.profile-email {
+  text-align: center;
+  font-size: 16px;
+  color: #222626;
+  text-align: center;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  width: 150px;
+  height: 100px;
+  background-color: #67c912;
+  color: #000000;
+  margin: 10px;
 }
