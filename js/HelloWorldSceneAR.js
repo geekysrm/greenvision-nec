@@ -28,7 +28,8 @@ export default class HelloWorldSceneAR extends Component {
       initialized: false,
       score: 8240,
       coinCount: 7,
-      coins: []
+      coins: [],
+      treePostion: 0
     };
 
     // bind 'this' to functions
@@ -49,6 +50,22 @@ export default class HelloWorldSceneAR extends Component {
     );
 
     this.setState({ coins: newCoins, initialized: true, score: response.data });
+
+    setInterval(this.changePos, 200);
+  };
+
+  changePos = () => {
+    if (this.state.treePostion <= -1) {
+      this.setState({
+        treePostion: 1
+      });
+    } else {
+      const newPos = this.state.treePostion - 0.1;
+
+      this.setState({
+        treePostion: newPos
+      });
+    }
   };
 
   componentDidUpdate = async () => {
@@ -103,7 +120,7 @@ export default class HelloWorldSceneAR extends Component {
               height={1}
               width={1}
               source={require("../assets/tree-min.png")}
-              position={[0, 0, 0]}
+              position={[this.state.treePostion, 0, 0]}
               transformBehaviors={["billboard"]}
             />
           </ViroNode>
