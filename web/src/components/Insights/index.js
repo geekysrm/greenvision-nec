@@ -6,12 +6,12 @@ import BarGraph from "./BarGraph";
 class Index extends Component {
   render() {
     return (
-      <div>
+      <div className="app-contianer">
         <h3
           style={{
             textAlign: "center",
             paddingTop: "13px",
-            marginBottom: "-31px"
+            height: "7vh"
           }}
         >
           Earth Points
@@ -21,7 +21,7 @@ class Index extends Component {
           style={{
             textAlign: "center",
             paddingTop: "13px",
-            marginBottom: "-31px"
+            height: "7vh"
           }}
         >
           KMs Travelled
@@ -31,7 +31,7 @@ class Index extends Component {
           style={{
             textAlign: "center",
             paddingTop: "13px",
-            marginBottom: "-31px"
+            height: "7vh"
           }}
         >
           Money (₹) Saved
@@ -41,7 +41,7 @@ class Index extends Component {
           style={{
             textAlign: "center",
             paddingTop: "13px",
-            marginBottom: "-31px"
+            height: "7vh"
           }}
         >
           CO<sub>2</sub> Emission Reduced

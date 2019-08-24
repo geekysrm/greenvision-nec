@@ -21,6 +21,7 @@ class BarGraph extends Component {
           style={{ parent: { maxWidth: "100%" } }}
           theme={VictoryTheme.material}
           domainPadding={10}
+          // standalone={false}
         >
           <VictoryAxis
             crossAxis
