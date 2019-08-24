@@ -14,7 +14,13 @@ class App extends Component {
 
         <div className="profile-container">
           <div className="avatar-container">
-            <Avatar shape="square" size={64} icon="user" className="avatar" />
+            <Avatar
+              shape="square"
+              size={64}
+              icon="user"
+              className="avatar"
+              src="https://sonu12485.github.io/images/avatar.jpg"
+            />
           </div>
           <div className="profile-name">{this.props.user.name}</div>
           <div className="profile-email">{this.props.user.email}</div>
