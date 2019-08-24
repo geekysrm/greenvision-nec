@@ -117,3 +117,14 @@ code {
 .arrow {
   font-size: 24px;
 }
+
+.streks {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.streks-heading {
+  font-size: 24px;
+  color: #4ddcfc;
+}

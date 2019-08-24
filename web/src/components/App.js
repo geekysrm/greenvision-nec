@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Avatar } from "antd";
+import { Avatar, Progress } from "antd";
 
 import { connect } from "react-redux";
 
@@ -38,6 +38,18 @@ class App extends Component {
           <div className="card">
             <div className="score">{this.props.stats.totalMoneySaved}</div>
             <div className="card-label">Money Saved (&#8377;) </div>
+          </div>
+        </div>
+
+        <div className="streks">
+          <div className="streks-heading">Day 5/7 Strek</div>
+          <div>
+            <Progress
+              percent={71}
+              status="active"
+              strokeColor="#4DDCFC"
+              strokeWidth={12}
+            />
           </div>
         </div>
 
