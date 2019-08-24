@@ -3,17 +3,11 @@ import { VictoryBar, VictoryChart, VictoryTheme, VictoryAxis } from "victory";
 
 class BarGraph extends Component {
   render() {
-    const newData = [
-      { x: 1, y: 2 },
-      { x: 2, y: 3 },
-      { x: 3, y: 5 },
-      { x: 4, y: 4 },
-      { x: 5, y: 6 }
-    ];
+    const newData = this.props.newData;
 
     return (
       <div className="graph-wrapper">
-        <div
+        {/* <div
           style={{
             color: "#7392a0",
             alignSelf: "center",
@@ -21,8 +15,8 @@ class BarGraph extends Component {
             marginLeft: "3px"
           }}
         >
-          Hello
-        </div>
+          {this.props.xAxisLabel}
+        </div> */}
         <VictoryChart
           style={{ parent: { maxWidth: "100%" } }}
           theme={VictoryTheme.material}
@@ -32,9 +26,6 @@ class BarGraph extends Component {
             crossAxis
             tickValues={["1", "2", "3", "4"]}
             tickFormat={t => `Day ${t}`}
-            style={{
-              ticks: { stroke: "red", size: 5 }
-            }}
           />
           <VictoryAxis
             dependentAxis
@@ -47,6 +38,7 @@ class BarGraph extends Component {
             standalone={false}
           />
           <VictoryBar
+            barWidth={40}
             labels={d => `y: ${d.y}`}
             animate={{
               duration: 2000,

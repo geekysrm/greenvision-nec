@@ -20,7 +20,7 @@ import reducers from "./reducers";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import App from "./components/App";
-import Insights from "./components/Insights";
+import Insights from "./components/Insights/index";
 
 import "./index.css";
 
