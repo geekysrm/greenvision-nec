@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { VictoryBar, VictoryChart, VictoryTheme } from "victory";
+import { VictoryBar, VictoryChart, VictoryTheme, VictoryAxis } from "victory";
 
 class BarGraph extends Component {
   render() {
@@ -13,11 +13,39 @@ class BarGraph extends Component {
 
     return (
       <div className="graph-wrapper">
+        <div
+          style={{
+            color: "#7392a0",
+            alignSelf: "center",
+            marginRight: "-30px",
+            marginLeft: "3px"
+          }}
+        >
+          Hello
+        </div>
         <VictoryChart
           style={{ parent: { maxWidth: "100%" } }}
           theme={VictoryTheme.material}
           domainPadding={10}
         >
+          <VictoryAxis
+            crossAxis
+            tickValues={["1", "2", "3", "4"]}
+            tickFormat={t => `Day ${t}`}
+            style={{
+              ticks: { stroke: "red", size: 5 }
+            }}
+          />
+          <VictoryAxis
+            dependentAxis
+            crossAxis
+            width={400}
+            height={400}
+            domain={[0, 10]}
+            theme={VictoryTheme.material}
+            // offsetX={200}
+            standalone={false}
+          />
           <VictoryBar
             labels={d => `y: ${d.y}`}
             animate={{
@@ -28,7 +56,7 @@ class BarGraph extends Component {
               data: {
                 fill: "#67C912"
               },
-              labels: { fontSize: 9 }
+              labels: { fontSize: 0.5, fill: "000" }
             }}
             alignment="start"
             data={newData}

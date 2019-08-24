@@ -7,6 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+  color: white;
 }
 
 code {
@@ -51,4 +53,8 @@ code {
 
 .avatar {
   border: 2px solid #67c912;
+}
+
+.graph-wrapper {
+  display: flex;
 }
