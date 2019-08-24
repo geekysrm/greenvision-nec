@@ -32,9 +32,6 @@ class BarGraph extends Component {
             crossAxis
             tickValues={["1", "2", "3", "4"]}
             tickFormat={t => `Day ${t}`}
-            style={{
-              ticks: { stroke: "red", size: 5 }
-            }}
           />
           <VictoryAxis
             dependentAxis
@@ -47,6 +44,7 @@ class BarGraph extends Component {
             standalone={false}
           />
           <VictoryBar
+            barWidth={40}
             labels={d => `y: ${d.y}`}
             animate={{
               duration: 2000,
