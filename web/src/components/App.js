@@ -4,7 +4,13 @@ import { Avatar, Icon, Progress } from "antd";
 
 import { connect } from "react-redux";
 
+import { getEarthPoints } from "../actions/earthPointsActions";
+
 class App extends Component {
+  componentDidMount() {
+    this.props.getEarthPoints();
+  }
+
   render() {
     return (
       <div className="app-contianer">
@@ -123,4 +129,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  {
+    getEarthPoints
+  }
+)(App);

@@ -1,0 +1,1 @@
+export const GET_EARTH_POINTS = "GET_EARTH_POINTS";
