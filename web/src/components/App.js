@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Avatar } from "antd";
+import { Avatar, Icon } from "antd";
 
 import { connect } from "react-redux";
 
@@ -47,7 +47,10 @@ class App extends Component {
             this.props.history.push("/insights");
           }}
         >
-          View All Stats <div className="arrow">&rArr;</div>
+          View All Stats{" "}
+          <div className="arrow">
+            <Icon type="right" />
+          </div>
         </div>
 
         <br />
