@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { Avatar } from "antd";
 
+import { connect } from "react-redux";
+
 class App extends Component {
   render() {
     return (
@@ -14,10 +16,25 @@ class App extends Component {
           <div className="avatar-container">
             <Avatar shape="square" size={64} icon="user" className="avatar" />
           </div>
+          <div className="profile-name">{this.props.user.name}</div>
+          <div className="profile-email">{this.props.user.email}</div>
+        </div>
+
+        <div className="cards-container">
+          <div className="card">hello</div>
+          <div className="card">hello</div>
+          <div className="card">hello</div>
+          <div className="card">hello</div>
         </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(App);
