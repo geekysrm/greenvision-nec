@@ -59,6 +59,18 @@ class App extends Component {
           </div>
         </div>
 
+        <div
+          className="goto-button"
+          onClick={() => {
+            this.props.history.push("/leaderboard");
+          }}
+        >
+          View LeaderBoard{" "}
+          <div className="arrow">
+            <Icon type="right" />
+          </div>
+        </div>
+
         <br />
         <br />
         <br />

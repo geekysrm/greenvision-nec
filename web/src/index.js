@@ -23,6 +23,7 @@ import App from "./components/App";
 import Insights from "./components/Insights/index";
 
 import "./index.css";
+import LeaderBoard from "./components/LeaderBoard";
 
 // const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
@@ -41,6 +42,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route exact path="/insights" component={Insights} />
+        <Route exact path="/leaderboard" component={LeaderBoard} />
 
         <Redirect from="*" to={"/"} />
       </Switch>

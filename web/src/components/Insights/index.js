@@ -7,6 +7,9 @@ class Index extends Component {
   render() {
     return (
       <div className="app-contianer">
+        <div className="app-header">
+          <div className="header-text">GreenVision</div>
+        </div>
         <h3
           style={{
             textAlign: "center",

@@ -1,4 +1,8 @@
 @import "~antd/dist/antd.css";
+/* 
+* {
+  color: white !important;
+} */
 
 body {
   margin: 0;
@@ -125,4 +129,20 @@ code {
 
 img {
   object-fit: cover;
+}
+
+.ant-list-item-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 1px;
+  border-color: #67c912;
+  border-style: solid;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.ant-list-split .ant-list-item {
+  border-bottom: 0px;
 }
