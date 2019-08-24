@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Avatar, Button, Skeleton } from "antd";
+import { List, Avatar, Icon } from "antd";
 
 const data = [
   {
@@ -9,7 +9,7 @@ const data = [
   },
   {
     title: "Amiya Kumar Tripathy",
-    src: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+    src: "https://i.postimg.cc/PxJ0VvMS/photo6271764211059239153.jpg"
   }
 ];
 
@@ -17,8 +17,22 @@ class LeaderBoard extends Component {
   render() {
     return (
       <div>
-        <div className="app-header">
-          <div className="header-text">GreenVision</div>
+        <div
+          className="app-header"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div
+            className="arrow"
+            style={{ paddingLeft: "5px" }}
+            onClick={() => {
+              this.props.history.push("/");
+            }}
+          >
+            <Icon type="left" />
+          </div>
+          <div style={{ width: "100%", textAlign: "center" }}>
+            <div className="header-text">GreenVision</div>
+          </div>
         </div>
         <div>
           <div

@@ -1,14 +1,30 @@
 // This is the Insights Page
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Icon } from "antd";
+
 import BarGraph from "./BarGraph";
 
 class Index extends Component {
   render() {
     return (
       <div className="app-contianer">
-        <div className="app-header">
-          <div className="header-text">GreenVision</div>
+        <div
+          className="app-header"
+          style={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <div
+            className="arrow"
+            style={{ paddingLeft: "5px" }}
+            onClick={() => {
+              this.props.history.push("/");
+            }}
+          >
+            <Icon type="left" />
+          </div>
+          <div style={{ width: "100%", textAlign: "center" }}>
+            <div className="header-text">GreenVision</div>
+          </div>
         </div>
         <h3
           style={{
