@@ -87,8 +87,34 @@ code {
 
 .card {
   width: 150px;
-  height: 100px;
+  height: 110px;
   background-color: #67c912;
   color: #000000;
   margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.card-label {
+  text-align: center;
+}
+
+.goto-button {
+  margin: 10px;
+  background-color: #222626;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+}
+
+.arrow {
+  font-size: 24px;
 }
