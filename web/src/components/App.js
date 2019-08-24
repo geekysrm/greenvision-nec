@@ -48,7 +48,7 @@ class App extends Component {
         </div>
 
         <div className="streks">
-          <div className="streks-heading">Day 5/7 Strek</div>
+          <div className="streks-heading">Day 5/7 Streak</div>
           <div>
             <Progress
               percent={71}
