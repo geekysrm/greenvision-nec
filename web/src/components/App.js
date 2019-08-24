@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Avatar, Progress } from "antd";
+import { Avatar, Icon, Progress } from "antd";
 
 import { connect } from "react-redux";
 
@@ -14,7 +14,13 @@ class App extends Component {
 
         <div className="profile-container">
           <div className="avatar-container">
-            <Avatar shape="square" size={64} icon="user" className="avatar" />
+            <Avatar
+              shape="square"
+              size={64}
+              icon="user"
+              className="avatar"
+              src="https://sonu12485.github.io/images/avatar.jpg"
+            />
           </div>
           <div className="profile-name">{this.props.user.name}</div>
           <div className="profile-email">{this.props.user.email}</div>
@@ -59,7 +65,10 @@ class App extends Component {
             this.props.history.push("/insights");
           }}
         >
-          View All Stats <div className="arrow">&rArr;</div>
+          View All Stats{" "}
+          <div className="arrow">
+            <Icon type="right" />
+          </div>
         </div>
 
         <br />
