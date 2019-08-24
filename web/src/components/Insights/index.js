@@ -5,7 +5,6 @@ import BarGraph from "./BarGraph";
 
 class Index extends Component {
   render() {
-    console.log(this.props.stats);
     return (
       <div>
         <h3
