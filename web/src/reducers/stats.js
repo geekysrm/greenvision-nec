@@ -1,3 +1,5 @@
+import { GET_EARTH_POINTS } from "../actions/types";
+
 const initialState = {
   totalEarthPoints: 8240,
   totalKMTraveled: 73.8,
@@ -31,6 +33,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case GET_EARTH_POINTS:
+      return { ...state, totalEarthPoints: action.payload.data };
     default:
       return state;
   }
