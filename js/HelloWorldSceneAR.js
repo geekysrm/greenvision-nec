@@ -2,7 +2,8 @@
 
 import React, { Component } from "react";
 
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
+import axios from "axios";
 
 import {
   ViroARScene,
@@ -10,14 +11,10 @@ import {
   ViroConstants,
   ViroAmbientLight,
   Viro3DObject,
-  ViroButton,
   ViroARPlaneSelector,
   ViroARPlane,
   ViroSpotLight,
   ViroImage,
-  ViroScene,
-  ViroPortalScene,
-  ViroPortal,
   ViroNode,
   ViroARCamera
 } from "react-viro";
@@ -29,16 +26,17 @@ export default class HelloWorldSceneAR extends Component {
     // Set initial state here
     this.state = {
       initialized: false,
-      score: 0,
+      score: 8240,
       coinCount: 7,
-      coins: []
+      coins: [],
+      treePostion: 0
     };
 
     // bind 'this' to functions
     this._onInitialized = this._onInitialized.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     let newCoins = [];
     for (let i = 0; i < this.state.coinCount; i++) {
       newCoins.push({
@@ -47,8 +45,37 @@ export default class HelloWorldSceneAR extends Component {
         visible: true
       });
     }
-    this.setState({ coins: newCoins });
-  }
+    const response = await axios.get(
+      "https://greenvision-api.herokuapp.com/points"
+    );
+
+    this.setState({ coins: newCoins, initialized: true, score: response.data });
+
+    setInterval(this.changePos, 200);
+  };
+
+  changePos = () => {
+    if (this.state.treePostion <= -1) {
+      this.setState({
+        treePostion: 1
+      });
+    } else {
+      const newPos = this.state.treePostion - 0.1;
+
+      this.setState({
+        treePostion: newPos
+      });
+    }
+  };
+
+  componentDidUpdate = async () => {
+    const response = await axios.get(
+      "https://greenvision-api.herokuapp.com/points"
+    );
+    this.setState({
+      score: response.data
+    });
+  };
 
   getRandomNumbers = () => {
     return Math.floor(Math.random() * 6) - 3;
@@ -63,9 +90,10 @@ export default class HelloWorldSceneAR extends Component {
       }
     }
 
+    axios.get("https://greenvision-api.herokuapp.com/add/10");
+
     //increase score by 10 and make the clicked coin invisible
     this.setState(state => ({
-      score: state.score + 10,
       coins: newCoins
     }));
   };
@@ -74,25 +102,16 @@ export default class HelloWorldSceneAR extends Component {
     return (
       <View style={{ flex: 1 }}>
         <ViroARScene>
-          <ViroARCamera>
-            <ViroText
-              position={[1.5, 2.5, -6]}
-              text={`Earth Points: ${this.state.score}`}
-              width={2}
-              height={2}
-            />
-            <ViroButton
-              source={require("../assets/return-button-png-34570.png")}
-              position={[-1, 3, -6]}
-              height={0.7}
-              width={1.3}
-              onClick={() =>
-                this.props.sceneNavigator.viroAppProps.onBackButtonPress(
-                  "UNSET"
-                )
-              }
-            />
-          </ViroARCamera>
+          {this.state.initialized ? (
+            <ViroARCamera>
+              <ViroText
+                position={[1.5, 2.5, -6]}
+                text={`Earth Points: ${this.state.score}`}
+                width={2}
+                height={2}
+              />
+            </ViroARCamera>
+          ) : null}
 
           <ViroNode position={[0.0, 0.0, -1.0]} scale={[0.5, 0.5, 0.5]}>
             <ViroAmbientLight color='#ffffff' />
@@ -101,7 +120,7 @@ export default class HelloWorldSceneAR extends Component {
               height={1}
               width={1}
               source={require("../assets/tree-min.png")}
-              position={[0, 0, 0]}
+              position={[this.state.treePostion, 0, 0]}
               transformBehaviors={["billboard"]}
             />
           </ViroNode>
