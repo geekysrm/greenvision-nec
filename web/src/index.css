@@ -179,7 +179,7 @@ img {
 }
 
 .bg-img {
-  width: 300px;
+  width: 350px;
   object-fit: contain;
   margin: 10px;
   border-radius: 10px;
@@ -199,12 +199,13 @@ img {
 
 .redeem-card-text {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 0px;
+  left: 0px;
   color: #67c912;
   font-size: 24px;
   font-weight: 500;
   text-align: center;
+  padding: 20px;
 }
 
 .game-btn {
