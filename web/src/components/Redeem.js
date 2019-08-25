@@ -50,7 +50,32 @@ class Redeem extends Component {
               Donate earned points to charity
             </div>
           </div>
+          <div className="redeem-card">
+            <img
+              class="bg-img"
+              src="http://www.smartpayonline.in/wp-content/uploads/2017/12/bill-1696.jpg"
+            />
+            <div className="redeem-card-text">Pay Household Bill</div>
+          </div>
         </div>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     );
   }
