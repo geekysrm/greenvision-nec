@@ -11,7 +11,7 @@
     "axios": "^0.19.0",
     "create-react-class": "^15.6.3",
     "react": "16.8.3",
-    "react-native": "0.59.3",
+    "react-native": "0.62.3",
     "react-viro": "2.16.0"
   },
   "devDependencies": {
